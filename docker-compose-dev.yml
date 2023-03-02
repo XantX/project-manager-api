@@ -1,16 +1,20 @@
 version: "3.9"
 services:
-  project-manager:
+  api:
     build:
-      context: .
       dockerfile: Dockerfile.dev
+      context: .
+      target: development
+    volumes:
+      - .:/app
+    command: npm run start:dev
+    depends_on:
+      - mongo-db
     ports:
       - "3000:3000"
     links:
-      - proyect-manager-db 
-    volumes:
-      - ./:/app
-  project-manager-db:
+      - mongo-db 
+  mongo-db:
     image: mongo
     ports:
       - "27017:27017"
@@ -22,3 +26,4 @@ services:
 
 volumes:
   mongo-data:
+
