@@ -1,12 +1,12 @@
 version: "3.9"
 services:
   api:
+    container_name: nestjs_api_dev
+    image: nestjs-api-dev:1.0.0
     build:
       dockerfile: Dockerfile.dev
       context: .
       target: development
-    volumes:
-      - .:/app
     command: npm run start:dev
     depends_on:
       - mongo-db
@@ -14,6 +14,9 @@ services:
       - "3000:3000"
     links:
       - mongo-db 
+    volumes:
+      - .:/app
+      - /app/node_modules
   mongo-db:
     image: mongo
     ports:
