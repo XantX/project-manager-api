@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  project-manager:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - proyect-manager-db 
+    volumes:
+      - ./:/app
+  project-manager-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=xantx
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
