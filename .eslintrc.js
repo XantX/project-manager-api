@@ -26,6 +26,7 @@ module.exports = {
     ],
     'max-len': ['error', {'code': 250, 'tabWidth': 2, "ignoreUrls": true, "ignoreStrings": true, "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true}],
     'max-params': ['warn', 8],
+    "no-unused-vars": ["error", { "vars": "local", "args": "after-used", "ignoreRestSiblings": false, "argsIgnorePattern": "_" }],
     'comma-spacing': ["error", { "before": false, "after": true }],
     'arrow-spacing': ["error", { "before": true, "after": true }],
     '@typescript-eslint/explicit-function-return-type': 'off',
