@@ -7,7 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { MongoIdPipe } from 'src/modules/common/pipes/mongo-id.pipe';
+import { MongoIdPipe } from '../../../../common/pipes/mongo-id.pipe';
 import { ProjectDto } from '../../application/dtos/project.dto';
 import { ProjectService } from '../../application/services/project.service';
 import { Project } from '../../domain/entities/project.entity';

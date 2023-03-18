@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CrudService } from 'src/modules/common/crud-service.abstract';
-import { MessageResponse } from 'src/modules/common/response-message/messages';
+import { CrudService } from '../../../../common/crud-service.abstract';
+import { MessageResponse } from '../../../../common/response-message/messages';
 import { Project, ProjectDocument } from '../../domain/entities/project.entity';
 import { ProjectDto } from '../dtos/project.dto';
 
