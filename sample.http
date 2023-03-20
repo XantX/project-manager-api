@@ -1,6 +1,6 @@
 #Delete project
 
-DELETE http://localhost:3000/api-project-manager/v1/projects/641269d94b7ba33663daaa15
+DELETE http://localhost:3000/api-project-manager/v1/projects/6417a02cbd89a32488edeb3d
 
 # Get all projects
 
@@ -21,6 +21,6 @@ POST http://localhost:3000/api-project-manager/v1/projects
 Content-Type: application/json
 
 {
-  "title": "Example project",
-  "description": "aaaaaaaaaaa"
+  "title": "Ejemplo de proyecto 1",
+  "description": "variante de documento"
 }

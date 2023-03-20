@@ -22,7 +22,8 @@ export class ProjectsController {
   }
   @Post()
   async create(@Body() projectDto: ProjectDto): Promise<Project> {
-    return await this._projectService.create(projectDto);
+    const result = await this._projectService.create(projectDto);
+    return result;
   }
   @Delete(':id')
   async delete(@Param('id', MongoIdPipe) id: string): Promise<Project> {
