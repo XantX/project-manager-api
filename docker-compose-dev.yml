@@ -1,31 +1,39 @@
-version: "3.9"
 services:
   api:
-    container_name: nestjs_api_dev
-    image: nestjs-api-dev:1.0.0
     build:
-      dockerfile: Dockerfile.dev
       context: .
+      dockerfile: Dockerfile.dev
       target: development
     command: npm run start:dev
+    container_name: nestjs_api_dev
     depends_on:
       - mongo-db
-    ports:
-      - "3000:3000"
+    environment:
+      - HOST_MONGODB=mongo_db
+      - USER_MONGODB=xantx
+      - PASSWORD_MONGODB=password
+      - DATABASE_MONGODB=project-manager
+      - PORT_MONGODB=27017
+    image: nestjs-api-dev:1.0.0
     links:
       - mongo-db 
+    ports:
+      - "3000:3000"
     volumes:
       - .:/app
       - /app/node_modules
   mongo-db:
-    image: mongo
-    ports:
-      - "27017:27017"
+    container_name: mongo_db 
     environment:
       - MONGO_INITDB_ROOT_USERNAME=xantx
       - MONGO_INITDB_ROOT_PASSWORD=password
+    image: mongo
+    ports:
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
+version: "3.9"
+
 
 volumes:
   mongo-data:
